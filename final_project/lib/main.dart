@@ -29,6 +29,6 @@ class MyApp extends StatelessWidget {
           // is not restarted.didn't reset back to zero; the application
           fontFamily: 'Poppins',
         ),
-        home: HomeScreen());
+        home: LoginScreen());
   }
 }

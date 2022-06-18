@@ -87,71 +87,70 @@ class HomeScreen extends StatelessWidget {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
+                
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(10),
-                    child: FractionallySizedBox(
-                      widthFactor: 0.5,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                          color: Color.fromRGBO(239, 108, 98, 1),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.fromLTRB(15, 20, 15, 20),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Meet Heroes',
-                                style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w700),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width * 0.42,
+                      // height: MediaQuery.of(context).size.height * 0.15,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: Color.fromRGBO(239, 108, 98, 1),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Meet Heroes',
+                              style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w700),
+                              textAlign: TextAlign.center,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 10),
+                              child: Text(
+                                'Blood Donors, Life savers in your area',
+                                style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w400),
                                 textAlign: TextAlign.center,
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(top: 10),
-                                child: Text(
-                                  'Blood Donors, Life savers in your area',
-                                  style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w400),
-                                  textAlign: TextAlign.center,
-                                ),
-                              )
-                            ],
-                          ),
+                            )
+                          ],
                         ),
                       ),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(10),
-                    child: FractionallySizedBox(
-                      widthFactor: 0.5,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                          color: Color.fromRGBO(129, 175, 161, 1),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.fromLTRB(15, 20, 15, 20),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Give Blood',
-                                style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w700),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width * 0.42,
+                      // height: MediaQuery.of(context).size.height * 0.15,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: Color.fromRGBO(129, 175, 161, 1),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Give Blood',
+                              style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w700),
+                              textAlign: TextAlign.center,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 10),
+                              child: Text(
+                                'Find blood requests near you. Save Someone’s life.',
+                                style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w400),
                                 textAlign: TextAlign.center,
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(top: 10),
-                                child: Text(
-                                  'Find blood requests near you. Save Someone’s life.',
-                                  style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w400),
-                                  textAlign: TextAlign.center,
-                                ),
-                              )
-                            ],
-                          ),
+                            )
+                          ],
                         ),
                       ),
                     ),

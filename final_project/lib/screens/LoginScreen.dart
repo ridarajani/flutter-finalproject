@@ -1,3 +1,4 @@
+import 'package:final_project/screens/HomeScreen.dart';
 import 'package:final_project/screens/RegistrationScreen.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           fontWeight: FontWeight.bold,
                           fontSize: 30),
                     )),
-                Padding(
+                Padding( 
                   padding: const EdgeInsets.symmetric(
                     horizontal: 0,
                     vertical: 10,
@@ -120,7 +121,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             TextStyle(color: Color.fromRGBO(239, 108, 98, 1)),
                       ),
                       onPressed: () {
-                        //signup screen
+                        Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => RegistrationScreen()));
                       },
                     )
                   ],

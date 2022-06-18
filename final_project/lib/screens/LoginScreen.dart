@@ -1,3 +1,4 @@
+import 'package:final_project/screens/HomeScreen.dart';
 import 'package:final_project/screens/RegistrationScreen.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +24,7 @@ class LoginScreen extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           fontSize: 30),
                     )),
-                Padding(
+                Padding( 
                   padding: const EdgeInsets.symmetric(
                     horizontal: 0,
                     vertical: 10,
@@ -97,7 +98,7 @@ class LoginScreen extends StatelessWidget {
                                 color: Color.fromARGB(255, 252, 252, 252))),
                         onPressed: () {
                            Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => RegistrationScreen()));
+                      MaterialPageRoute(builder: (_) => HomeScreen()));
                         },
                       )),
                 ),
@@ -113,7 +114,8 @@ class LoginScreen extends StatelessWidget {
                             TextStyle(color: Color.fromRGBO(239, 108, 98, 1)),
                       ),
                       onPressed: () {
-                        //signup screen
+                        Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => RegistrationScreen()));
                       },
                     )
                   ],

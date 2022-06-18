@@ -1,14 +1,17 @@
 import 'package:final_project/screens/HomeScreen.dart';
-import 'package:final_project/screens/RegistrationScreen.dart';
-import 'package:final_project/screens/forgotPasswordScreen.dart';
+import 'package:final_project/screens/LoginScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/src/foundation/key.dart';
+import 'package:flutter/src/widgets/framework.dart';
 
-class LoginScreen extends StatefulWidget {
+class ResetPasswordScreen extends StatefulWidget {
+  const ResetPasswordScreen({Key? key}) : super(key: key);
+
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<ResetPasswordScreen> createState() => _ResetPasswordScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,11 +27,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     alignment: Alignment.center,
                     padding: const EdgeInsets.all(10),
                     child: const Text(
-                      'Welcome',
+                      'Set your New Password',
                       style: TextStyle(
                           color: Color.fromRGBO(239, 108, 98, 1),
                           fontWeight: FontWeight.bold,
-                          fontSize: 30),
+                          fontSize: 28),
                     )),
                 Padding(
                   padding: const EdgeInsets.symmetric(
@@ -37,22 +40,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   child: Column(
                     children: [
-                      Container(
-                        padding: const EdgeInsets.all(10),
-                        child: TextField(
-                          style: TextStyle(height: 0.5),
-                          decoration: const InputDecoration(
-                            border: InputBorder.none,
-                            labelText: 'Email Address',
-                            labelStyle: TextStyle(
-                                color: Color.fromRGBO(165, 160, 160, 1)),
-                            fillColor: Color.fromRGBO(240, 240, 240, 0.86),
-                            filled: true,
-                            suffixIcon: Icon(Icons.email_outlined,
-                                color: Color.fromRGBO(165, 160, 160, 1)),
-                          ),
-                        ),
-                      ),
                       Container(
                         padding: const EdgeInsets.all(10),
                         child: TextField(
@@ -69,28 +56,24 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                       ),
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        child: TextField(
+                          style: TextStyle(height: 0.5),
+                          decoration: const InputDecoration(
+                            border: InputBorder.none,
+                            labelText: 'Confirm Password',
+                            labelStyle: TextStyle(
+                                color: Color.fromRGBO(165, 160, 160, 1)),
+                            fillColor: Color.fromRGBO(240, 240, 240, 0.86),
+                            filled: true,
+                            suffixIcon: Icon(Icons.lock_outline,
+                                color: Color.fromRGBO(165, 160, 160, 1)),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    TextButton(
-                      onPressed: () {
-                        //forgot password screen
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (_) => ForgotPasswordScreen()));
-                      },
-                      child: const Text(
-                        'Forgot Password?',
-                        style: TextStyle(
-                            color: Color.fromRGBO(239, 108, 98, 1),
-                            fontSize: 12),
-                      ),
-                    ),
-                  ],
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(
@@ -103,60 +86,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all(
                                 Color.fromRGBO(129, 175, 161, 1))),
-                        child: const Text('Login',
+                        child: const Text('Reset Password',
                             style: TextStyle(
                                 color: Color.fromARGB(255, 252, 252, 252))),
                         onPressed: () {
                           Navigator.push(context,
-                              MaterialPageRoute(builder: (_) => HomeScreen()));
+                              MaterialPageRoute(builder: (_) => LoginScreen()));
                         },
                       )),
-                ),
-                Row(
-                  children: <Widget>[
-                    const Text('Does not have account?',
-                        style:
-                            TextStyle(color: Color.fromRGBO(165, 160, 160, 1))),
-                    TextButton(
-                      child: const Text(
-                        'Sign in',
-                        style:
-                            TextStyle(color: Color.fromRGBO(239, 108, 98, 1)),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (_) => RegistrationScreen()));
-                      },
-                    )
-                  ],
-                  mainAxisAlignment: MainAxisAlignment.center,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 60,
-                    vertical: 35,
-                  ),
-                  child: Container(
-                    color: Color.fromRGBO(217, 217, 217, 1),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Image.asset(
-                          'assets/images/google-logo.png',
-                          height: 40.0,
-                          width: 40.0,
-                        ),
-                        Padding(
-                            padding: EdgeInsets.only(left: 10.0),
-                            child: new Text(
-                              "Sign in with google",
-                              style: TextStyle(fontSize: 15.0),
-                            ))
-                      ],
-                    ),
-                  ),
                 ),
               ],
             )));

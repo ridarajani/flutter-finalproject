@@ -2,7 +2,12 @@ import 'package:final_project/screens/HomeScreen.dart';
 import 'package:final_project/screens/RegistrationScreen.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,8 +102,10 @@ class LoginScreen extends StatelessWidget {
                             style: TextStyle(
                                 color: Color.fromARGB(255, 252, 252, 252))),
                         onPressed: () {
-                           Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => HomeScreen()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => RegistrationScreen()));
                         },
                       )),
                 ),

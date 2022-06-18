@@ -160,6 +160,7 @@ class HomeScreen extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     primary: Color.fromRGBO(217, 217, 217, 1),
                     minimumSize: const Size.fromHeight(50),
+                    elevation: 0
                   ),
                   onPressed: () {}, 
                   child: Text('Become a Donor', style: TextStyle(color: Color.fromRGBO(24, 32, 35, 1), fontSize: 16, fontWeight: FontWeight.w600),)

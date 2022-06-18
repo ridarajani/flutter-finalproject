@@ -71,6 +71,7 @@ class HomeScreen extends StatelessWidget {
                         Text(
                           'Need blood donation?',
                           style: TextStyle(color: Color.fromRGBO(239, 108, 98, 1), fontSize: 20, fontWeight: FontWeight.w700),
+                          textAlign: TextAlign.center,
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 10),
@@ -113,7 +114,7 @@ class HomeScreen extends StatelessWidget {
                               padding: const EdgeInsets.only(top: 10),
                               child: Text(
                                 'Blood Donors, Life savers in your area',
-                                style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w400),
+                                style: TextStyle(color: Colors.white, fontSize: 11.5, fontWeight: FontWeight.w400),
                                 textAlign: TextAlign.center,
                               ),
                             )
@@ -146,7 +147,7 @@ class HomeScreen extends StatelessWidget {
                               padding: const EdgeInsets.only(top: 10),
                               child: Text(
                                 'Find blood requests near you. Save Someone’s life.',
-                                style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w400),
+                                style: TextStyle(color: Colors.white, fontSize: 11.5, fontWeight: FontWeight.w400),
                                 textAlign: TextAlign.center,
                               ),
                             )

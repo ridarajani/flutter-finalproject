@@ -1,6 +1,7 @@
+import 'package:final_project/screens/RegistrationScreen.dart';
 import 'package:flutter/material.dart';
 
-class RegistrationScreen extends StatelessWidget {
+class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -9,15 +10,14 @@ class RegistrationScreen extends StatelessWidget {
             child: ListView(
               children: <Widget>[
                 Container(
-                  alignment: Alignment.center,
-                  padding: const EdgeInsets.all(10),
-                  child: Image.asset('assets/images/registration.png')
-                ),
+                    alignment: Alignment.center,
+                    padding: const EdgeInsets.all(10),
+                    child: Image.asset('assets/images/registration.png')),
                 Container(
                     alignment: Alignment.center,
                     padding: const EdgeInsets.all(10),
                     child: const Text(
-                      'Sign Up',
+                      'Welcome',
                       style: TextStyle(
                           color: Color.fromRGBO(239, 108, 98, 1),
                           fontWeight: FontWeight.bold,
@@ -36,25 +36,9 @@ class RegistrationScreen extends StatelessWidget {
                           style: TextStyle(height: 0.5),
                           decoration: const InputDecoration(
                             border: InputBorder.none,
-                            labelText: 'User Name',
-                            labelStyle:
-                                TextStyle(color: Color.fromRGBO(165, 160, 160, 1)),
-                            fillColor: Color.fromRGBO(240, 240, 240, 0.86),
-                            filled: true,
-                            suffixIcon: Icon(Icons.account_circle_outlined,
-                                color: Color.fromRGBO(165, 160, 160, 1)),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(10),
-                        child: TextField(
-                          style: TextStyle(height: 0.5),
-                          decoration: const InputDecoration(
-                            border: InputBorder.none,
                             labelText: 'Email Address',
-                            labelStyle:
-                                TextStyle(color: Color.fromRGBO(165, 160, 160, 1)),
+                            labelStyle: TextStyle(
+                                color: Color.fromRGBO(165, 160, 160, 1)),
                             fillColor: Color.fromRGBO(240, 240, 240, 0.86),
                             filled: true,
                             suffixIcon: Icon(Icons.email_outlined,
@@ -69,24 +53,8 @@ class RegistrationScreen extends StatelessWidget {
                           decoration: const InputDecoration(
                             border: InputBorder.none,
                             labelText: 'Password',
-                            labelStyle:
-                                TextStyle(color: Color.fromRGBO(165, 160, 160, 1)),
-                            fillColor: Color.fromRGBO(240, 240, 240, 0.86),
-                            filled: true,
-                            suffixIcon: Icon(Icons.lock_outline,
+                            labelStyle: TextStyle(
                                 color: Color.fromRGBO(165, 160, 160, 1)),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(10),
-                        child: TextField(
-                          style: TextStyle(height: 0.5),
-                          decoration: const InputDecoration(
-                            border: InputBorder.none,
-                            labelText: 'Confirm Password',
-                            labelStyle:
-                                TextStyle(color: Color.fromRGBO(165, 160, 160, 1)),
                             fillColor: Color.fromRGBO(240, 240, 240, 0.86),
                             filled: true,
                             suffixIcon: Icon(Icons.lock_outline,
@@ -96,6 +64,22 @@ class RegistrationScreen extends StatelessWidget {
                       ),
                     ],
                   ),
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        //forgot password screen
+                      },
+                      child: const Text(
+                        'Forgot Password?',
+                        style: TextStyle(
+                            color: Color.fromRGBO(239, 108, 98, 1),
+                            fontSize: 12),
+                      ),
+                    ),
+                  ],
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(
@@ -108,11 +92,57 @@ class RegistrationScreen extends StatelessWidget {
                         style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all(
                                 Color.fromRGBO(129, 175, 161, 1))),
-                        child: const Text('Sign Up',
+                        child: const Text('Login',
                             style: TextStyle(
                                 color: Color.fromARGB(255, 252, 252, 252))),
-                        onPressed: () {},
+                        onPressed: () {
+                           Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => RegistrationScreen()));
+                        },
                       )),
+                ),
+                Row(
+                  children: <Widget>[
+                    const Text('Does not have account?',
+                        style:
+                            TextStyle(color: Color.fromRGBO(165, 160, 160, 1))),
+                    TextButton(
+                      child: const Text(
+                        'Sign in',
+                        style:
+                            TextStyle(color: Color.fromRGBO(239, 108, 98, 1)),
+                      ),
+                      onPressed: () {
+                        //signup screen
+                      },
+                    )
+                  ],
+                  mainAxisAlignment: MainAxisAlignment.center,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 60,
+                    vertical: 35,
+                  ),
+                  child: Container(
+                    color: Color.fromRGBO(217, 217, 217, 1),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new Image.asset(
+                          'assets/images/google-logo.png',
+                          height: 40.0,
+                          width: 40.0,
+                        ),
+                        Padding(
+                            padding: EdgeInsets.only(left: 10.0),
+                            child: new Text(
+                              "Sign in with google",
+                              style: TextStyle(fontSize: 15.0),
+                            ))
+                      ],
+                    ),
+                  ),
                 ),
               ],
             )));

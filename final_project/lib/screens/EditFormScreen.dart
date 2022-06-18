@@ -1,12 +1,12 @@
 import 'package:final_project/screens/UserProfile.dart';
 import 'package:flutter/material.dart';
 
-class RegistrationScreen extends StatefulWidget {
+class EditFormScreen extends StatefulWidget {
   @override
-  State<RegistrationScreen> createState() => _RegistrationScreenState();
+  State<EditFormScreen> createState() => _EditFormScreenState();
 }
 
-class _RegistrationScreenState extends State<RegistrationScreen> {
+class _EditFormScreenState extends State<EditFormScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,15 +15,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             child: ListView(
               children: <Widget>[
                 Container(
-                  alignment: Alignment.center,
-                  padding: const EdgeInsets.all(10),
-                  child: Image.asset('assets/images/registration.png')
-                ),
-                Container(
                     alignment: Alignment.center,
                     padding: const EdgeInsets.all(10),
                     child: const Text(
-                      'Sign Up',
+                      'My Details',
                       style: TextStyle(
                           color: Color.fromRGBO(239, 108, 98, 1),
                           fontWeight: FontWeight.bold,
@@ -47,8 +42,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                 TextStyle(color: Color.fromRGBO(165, 160, 160, 1)),
                             fillColor: Color.fromRGBO(240, 240, 240, 0.86),
                             filled: true,
-                            suffixIcon: Icon(Icons.account_circle_outlined,
-                                color: Color.fromRGBO(165, 160, 160, 1)),
                           ),
                         ),
                       ),
@@ -58,13 +51,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           style: TextStyle(height: 0.5),
                           decoration: const InputDecoration(
                             border: InputBorder.none,
-                            labelText: 'Email Address',
+                            labelText: 'DOB',
                             labelStyle:
                                 TextStyle(color: Color.fromRGBO(165, 160, 160, 1)),
                             fillColor: Color.fromRGBO(240, 240, 240, 0.86),
                             filled: true,
-                            suffixIcon: Icon(Icons.email_outlined,
-                                color: Color.fromRGBO(165, 160, 160, 1)),
                           ),
                         ),
                       ),
@@ -79,8 +70,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                 TextStyle(color: Color.fromRGBO(165, 160, 160, 1)),
                             fillColor: Color.fromRGBO(240, 240, 240, 0.86),
                             filled: true,
-                            suffixIcon: Icon(Icons.lock_outline,
-                                color: Color.fromRGBO(165, 160, 160, 1)),
                           ),
                         ),
                       ),
@@ -95,8 +84,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                 TextStyle(color: Color.fromRGBO(165, 160, 160, 1)),
                             fillColor: Color.fromRGBO(240, 240, 240, 0.86),
                             filled: true,
-                            suffixIcon: Icon(Icons.lock_outline,
-                                color: Color.fromRGBO(165, 160, 160, 1)),
                           ),
                         ),
                       ),

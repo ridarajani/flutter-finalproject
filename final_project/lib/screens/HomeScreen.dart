@@ -1,7 +1,10 @@
 import 'package:final_project/nav-drawer.dart';
 import 'package:final_project/screens/EditFormScreen.dart';
 import 'package:final_project/screens/donorDetailScreen.dart';
+import 'package:final_project/screens/donorList.dart';
 import 'package:flutter/material.dart';
+
+import '../bottom-navigation.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -51,7 +54,9 @@ class HomeScreen extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 10, 0, 20),
-                child: Image.asset('assets/images/blood-donation.png'),
+                child: Image.asset(
+                  'assets/images/home-wallpaper.png',
+                ),
               ),
               Text(
                 'Connecting People',
@@ -116,7 +121,7 @@ class HomeScreen extends StatelessWidget {
                       // height: MediaQuery.of(context).size.height * 0.15,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
-                        color: Color.fromRGBO(239, 108, 98, 1),
+                        color: Color.fromRGBO(59, 47, 85, 1),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
@@ -124,13 +129,21 @@ class HomeScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Text(
-                              'Meet Heroes',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w700),
-                              textAlign: TextAlign.center,
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (_) => DonorList()));
+                              },
+                              child: Text(
+                                'Meet Heroes',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w700),
+                                textAlign: TextAlign.center,
+                              ),
                             ),
                             Padding(
                               padding: const EdgeInsets.only(top: 10),
@@ -155,7 +168,7 @@ class HomeScreen extends StatelessWidget {
                       // height: MediaQuery.of(context).size.height * 0.15,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
-                        color: Color.fromRGBO(129, 175, 161, 1),
+                        color: Color.fromRGBO(196, 43, 88, 1),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
@@ -189,7 +202,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              Padding(
+              /*  Padding(
                 padding: const EdgeInsets.fromLTRB(10, 15, 10, 0),
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
@@ -209,11 +222,12 @@ class HomeScreen extends StatelessWidget {
                           fontSize: 16,
                           fontWeight: FontWeight.w600),
                     )),
-              ),
+              ), */
             ],
           ),
         ),
       ),
+      bottomNavigationBar: BottomNavigation(),
     );
   }
 }

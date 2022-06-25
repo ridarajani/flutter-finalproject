@@ -1,4 +1,5 @@
 import 'package:final_project/screens/UserProfile.dart';
+import 'package:final_project/screens/donorDetailScreen.dart';
 import 'package:flutter/material.dart';
 
 class DonorList extends StatefulWidget {
@@ -13,8 +14,7 @@ class _DonorListState extends State<DonorList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(
-            239, 108, 98, 10),
+        backgroundColor: Color.fromRGBO(239, 108, 98, 10),
         title: Text('Donors'),
       ),
       body: Padding(
@@ -30,7 +30,7 @@ class _DonorListState extends State<DonorList> {
                   child: ListTile(
                     onTap: () {
                       Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => UserProfile()));
+                          MaterialPageRoute(builder: (_) => UserProfile()));
                     },
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5)),
@@ -42,46 +42,59 @@ class _DonorListState extends State<DonorList> {
                         Expanded(
                           child: Padding(
                             padding: const EdgeInsets.all(5.0),
-                            child: Text(
-                              'User Nmae',
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w600,
-                                  color: Color.fromRGBO(129, 175, 161, 10)),
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (_) => DonorDetailScreen()));
+                              },
+                              child: Text(
+                                'User Nmae',
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color.fromRGBO(129, 175, 161, 10)),
+                              ),
                             ),
                           ),
                         ),
                       ],
                     ),
                     subtitle: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            Icon(Icons.phone, size: 16,),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
-                              child: Text('0300 1236976'),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Icon(Icons.pin_drop_outlined, size: 18,),
-                            Expanded(
-                              child: Padding(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.phone,
+                                size: 16,
+                              ),
+                              Padding(
                                 padding: const EdgeInsets.only(left: 8.0),
-                                child: Text(
-                                  'Test street, city',
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 3,
+                                child: Text('0300 1236976'),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.pin_drop_outlined,
+                                size: 18,
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 8.0),
+                                  child: Text(
+                                    'Test street, city',
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 3,
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ]
-                    ),
+                            ],
+                          ),
+                        ]),
                     leading: Container(
                       height: double.infinity,
                       child: Image.asset(
@@ -94,7 +107,10 @@ class _DonorListState extends State<DonorList> {
                       height: double.infinity,
                       child: CircleAvatar(
                         backgroundColor: Color.fromRGBO(239, 108, 98, 1),
-                        child: Text('B+', style: TextStyle(color: Colors.white),),
+                        child: Text(
+                          'B+',
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ),
                     ),
                   ),

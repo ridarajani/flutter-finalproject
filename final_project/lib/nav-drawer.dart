@@ -1,6 +1,7 @@
 import 'package:final_project/screens/HomeScreen.dart';
 import 'package:final_project/screens/UserProfile.dart';
 import 'package:final_project/screens/appointmentScreen.dart';
+import 'package:final_project/screens/requestsScreen.dart';
 import 'package:flutter/material.dart';
 
 class NavDrawer extends StatelessWidget {
@@ -42,8 +43,8 @@ class NavDrawer extends StatelessWidget {
             leading: Icon(Icons.settings),
             title: Text('Appointments'),
             onTap: () => {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (_) => AppointmentScreen()))
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => RequestsScreen()))
             },
           ),
           ListTile(

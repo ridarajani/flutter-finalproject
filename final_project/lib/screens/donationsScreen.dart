@@ -1,18 +1,20 @@
 import 'dart:ui';
+import 'package:final_project/screens/donationsGiven.dart';
+import 'package:final_project/screens/donationsReceived.dart';
 import 'package:final_project/screens/requestReceived.dart';
 import 'package:final_project/screens/requestsSent.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-class RequestsScreen extends StatefulWidget {
-  const RequestsScreen({Key? key}) : super(key: key);
+class DonationsScreen extends StatefulWidget {
+  const DonationsScreen({Key? key}) : super(key: key);
 
   @override
-  State<RequestsScreen> createState() => _RequestsScreenState();
+  State<DonationsScreen> createState() => _DonationsScreenState();
 }
 
-class _RequestsScreenState extends State<RequestsScreen> {
+class _DonationsScreenState extends State<DonationsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,8 +78,8 @@ class _RequestsScreenState extends State<RequestsScreen> {
           body: TabBarView(children: [
             Container(
                 decoration: BoxDecoration(color: Colors.white),
-                child: RequestsSent()),
-            RequestsReceived()
+                child: DonationsGiven()),
+            DonationsReceived()
           ]),
         ),
       ),

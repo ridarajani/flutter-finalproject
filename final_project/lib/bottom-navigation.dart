@@ -13,7 +13,8 @@ class BottomNavigation extends StatelessWidget {
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: SizedBox(height: 50, child: Icon(AppIcons.user)),
+            // icon: SizedBox(height: 50, child: Icon(AppIcons.user)),
+            icon: Icon(Icons.person),
             label: 'Find Donor',
           ),
           BottomNavigationBarItem(

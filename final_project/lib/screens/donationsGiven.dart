@@ -2,33 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-class AppointmentScreen extends StatefulWidget {
-  const AppointmentScreen({Key? key}) : super(key: key);
+class DonationsGiven extends StatefulWidget {
+  const DonationsGiven({Key? key}) : super(key: key);
 
   @override
-  State<AppointmentScreen> createState() => _AppointmentScreenState();
+  State<DonationsGiven> createState() => DonationsGivenState();
 }
 
-class _AppointmentScreenState extends State<AppointmentScreen> {
+class DonationsGivenState extends State<DonationsGiven> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /* appBar: AppBar(
-        backgroundColor:
-            Colors.transparent /* Color.fromRGBO(129, 175, 161, 10) */,
-        title: Text('Donation History'),
-      ), */
       body: Container(
-        decoration: BoxDecoration(
+        /* decoration: BoxDecoration(
           image: DecorationImage(
               image: AssetImage('assets/images/background.jpg'),
               fit: BoxFit.cover),
-        ),
+        ), */
         child: Padding(
           padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
           child: Container(
             decoration: BoxDecoration(
-                color: Color.fromARGB(176, 255, 255, 255),
+                color: Colors.transparent,
                 borderRadius: BorderRadius.circular(40)),
             child: Column(
               children: [
@@ -61,7 +56,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                                   style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.w500,
-                                      color: Color.fromRGBO(129, 175, 161, 10)),
+                                      color: Color.fromRGBO(0, 67, 149, 1)),
                                 ),
                               ),
                             ),
@@ -111,8 +106,8 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                                 children: [
                                   ElevatedButton(
                                       style: ElevatedButton.styleFrom(
-                                        primary:
-                                            Colors.green.shade200, // background
+                                        primary: Color.fromRGBO(
+                                            0, 67, 149, 0.7), // background
                                       ),
                                       onPressed: () {},
                                       child: Text('Donated')),

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "778807832293",
+    "project_id": "hadya-40a69",
+    "storage_bucket": "hadya-40a69.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:778807832293:android:3822794847f9d4a7026e0c",
+        "android_client_info": {
+          "package_name": "com.example.final_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "778807832293-r0r8s9bddfu3vbb4c2rm8ur2ei2tllv1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBY699vrkrgILxH-H9AgJ3vZZSFxjZgYpU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "778807832293-r0r8s9bddfu3vbb4c2rm8ur2ei2tllv1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

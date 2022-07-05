@@ -2,7 +2,7 @@
 // import 'package:final_project/screens/HomeScreen.dart';
 // import 'package:final_project/screens/RegistrationScreen.dart';
 // import 'package:final_project/screens/forgotPasswordScreen.dart';
-import 'package:final_project/screens/testscreen.dart';
+import 'package:final_project/screens/registrationScreen.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -128,8 +128,10 @@ class _LoginScreenState extends State<LoginScreen> {
                             TextStyle(color: Color.fromRGBO(239, 108, 98, 1)),
                       ),
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (_) => TestScreen()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => RegistrationScreen()));
                       },
                     )
                   ],

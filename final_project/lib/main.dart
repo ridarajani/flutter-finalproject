@@ -1,4 +1,4 @@
-import 'package:final_project/screens/testscreen.dart';
+import 'package:final_project/screens/registrationScreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:final_project/screens/LoginScreen.dart';
@@ -29,6 +29,6 @@ class MyApp extends StatelessWidget {
           // is not restarted.didn't reset back to zero; the application
           fontFamily: 'Poppins',
         ),
-        home: TestScreen());
+        home: LoginScreen());
   }
 }

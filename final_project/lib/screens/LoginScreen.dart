@@ -1,7 +1,8 @@
-import 'package:final_project/bottom-navigation.dart';
-import 'package:final_project/screens/HomeScreen.dart';
-import 'package:final_project/screens/RegistrationScreen.dart';
-import 'package:final_project/screens/forgotPasswordScreen.dart';
+// import 'package:final_project/bottom-navigation.dart';
+// import 'package:final_project/screens/HomeScreen.dart';
+// import 'package:final_project/screens/RegistrationScreen.dart';
+// import 'package:final_project/screens/forgotPasswordScreen.dart';
+import 'package:final_project/screens/testscreen.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -79,10 +80,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     TextButton(
                       onPressed: () {
                         //forgot password screen
-                        Navigator.push(
+                        /* Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (_) => ForgotPasswordScreen()));
+                                builder: (_) => ForgotPasswordScreen())); */
                       },
                       child: const Text(
                         'Forgot Password?',
@@ -108,10 +109,10 @@ class _LoginScreenState extends State<LoginScreen> {
                             style: TextStyle(
                                 color: Color.fromARGB(255, 252, 252, 252))),
                         onPressed: () {
-                          Navigator.push(
+                          /*  Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (_) => BottomNavigation()));
+                                  builder: (_) => BottomNavigation())); */
                         },
                       )),
                 ),
@@ -127,10 +128,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             TextStyle(color: Color.fromRGBO(239, 108, 98, 1)),
                       ),
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (_) => RegistrationScreen()));
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (_) => TestScreen()));
                       },
                     )
                   ],

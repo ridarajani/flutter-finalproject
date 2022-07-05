@@ -1,16 +1,11 @@
-import 'package:final_project/screens/EditFormScreen.dart';
-import 'package:final_project/screens/HomeScreen.dart';
-import 'package:final_project/screens/UserProfile.dart';
-import 'package:final_project/screens/donorList.dart';
-import 'package:final_project/screens/splashScreen.dart';
+import 'package:final_project/screens/testscreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:final_project/screens/RegistrationScreen.dart';
 import 'package:final_project/screens/LoginScreen.dart';
 
 void main() async {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp();
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -34,6 +29,6 @@ class MyApp extends StatelessWidget {
           // is not restarted.didn't reset back to zero; the application
           fontFamily: 'Poppins',
         ),
-        home: LoginScreen());
+        home: TestScreen());
   }
 }

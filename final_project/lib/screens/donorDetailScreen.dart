@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
+/* import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:provider/provider.dart';
 
 import '../models/requestModel.dart';
-import 'package:final_project/providers/requestsProvider.dart';
+// import 'package:final_project/providers/requestsProvider.dart';
 
 class DonorDetailScreen extends StatefulWidget {
   const DonorDetailScreen({Key? key}) : super(key: key);
@@ -15,11 +15,11 @@ class DonorDetailScreen extends StatefulWidget {
 }
 
 class _DonorDetailScreenState extends State<DonorDetailScreen> {
-  late RequestsProvider requestsProvider;
+  // late RequestsProvider requestsProvider;
 
   @override
   initState() {
-    requestsProvider = Provider.of<RequestsProvider>(context, listen: false);
+    // requestsProvider = Provider.of<RequestsProvider>(context, listen: false);
 
     super.initState();
   }
@@ -37,7 +37,7 @@ class _DonorDetailScreenState extends State<DonorDetailScreen> {
           updatedAt: updated_at == null ? null : DateTime.now().toString(),
           requestStatus: request_status);
 
-      requestsProvider.addRequest(request);
+      // requestsProvider.addRequest(request);
     } catch (e) {
       print(e);
     }
@@ -253,3 +253,4 @@ class _DonorDetailScreenState extends State<DonorDetailScreen> {
     );
   }
 }
+ */

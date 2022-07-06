@@ -1,5 +1,8 @@
+import 'package:final_project/bottom-navigation.dart';
 import 'package:final_project/screens/HomeScreen.dart';
 import 'package:final_project/screens/registrationScreen.dart';
+import 'package:final_project/services/userDB.dart';
+import 'package:final_project/models/userModel.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -24,14 +27,14 @@ class _LoginScreenState extends State<LoginScreen> {
               email: emailController.text, password: passwordController.text);
       if (usercredentials.user != null) {
         print(usercredentials.user!.uid);
-        // UserModel? userModel =
-        //     await DbService().getUser(usercredentials.user!.uid);
-        /* await Navigator.pushAndRemoveUntil(context,
+        UserModel? userModel =
+            await UserDB().getHadyaUser(usercredentials.user!.uid);
+        await Navigator.pushAndRemoveUntil(context,
             MaterialPageRoute(builder: (_) {
-          return HomeScreen(
+          return BottomNavigation(
             userModel: userModel,
           );
-        }), (route) => false); */
+        }), (route) => false);
       } else {
         print("No User Found");
       }

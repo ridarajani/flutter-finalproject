@@ -1,3 +1,4 @@
+import 'package:final_project/models/userModel.dart';
 import 'package:final_project/screens/HomeScreen.dart';
 import 'package:final_project/screens/UserProfile.dart';
 import 'package:final_project/screens/donationsScreen.dart';
@@ -8,7 +9,8 @@ import 'package:flutter/material.dart';
 // import 'package:flutter/src/widgets/framework.dart';
 
 class BottomNavigation extends StatefulWidget {
-  BottomNavigation({Key? key}) : super(key: key);
+  UserModel? userModel;
+  BottomNavigation({this.userModel});
 
   @override
   State<BottomNavigation> createState() => _BottomNavigationState();

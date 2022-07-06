@@ -1,17 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-// import 'package:flutter_firebase/models/models.dart';
+import 'package:final_project/models/userModel.dart';
 
-class DbService {
-  Future createDocument(
-      String name, String fatherName, int age, String studentId) async {
+class UserDB {
+  Future createHadyaUser(String firstName, String lastName, String uid,
+      int mobileNumber, String gender, String Address, String DOB) async {
     var queryDoc =
-        FirebaseFirestore.instance.collection("students").doc(studentId);
+        FirebaseFirestore.instance.collection("hadya_users").doc(uid);
     try {
       await queryDoc.set({
-        "name": name,
-        "fatherName": fatherName,
-        "age": age,
-        "studentId": studentId
+        "firstName": firstName,
+        "lastName": lastName,
+        "mobileNumber": mobileNumber,
+        "gender": gender,
+        "DOB": DOB,
+        "Address": Address,
       });
       print("User Record Created Succesfully");
     } catch (e) {
@@ -19,19 +21,19 @@ class DbService {
     }
   }
 
-  /* Future<UserModel?> getUser(String uid) async {
+  Future<UserModel?> getHadyaUser(String uid) async {
     try {
+      print(uid);
       DocumentSnapshot<Map<String, dynamic>> documentSnapshot =
           await FirebaseFirestore.instance
-              .collection("students")
+              .collection("hadya_users")
               .doc(uid)
               .get();
       print(documentSnapshot.data());
       UserModel userModel = UserModel.fromJson(documentSnapshot.data()!);
-      print(userModel.name);
       return userModel;
     } catch (e) {
       print(e);
     }
-  } */
+  }
 }

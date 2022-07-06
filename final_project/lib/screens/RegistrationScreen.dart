@@ -1,4 +1,5 @@
 // import 'package:final_project/screens/UserProfile.dart';
+import 'package:final_project/services/userDB.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -28,11 +29,15 @@ class RegistrationScreenState extends State<RegistrationScreen> {
                 email: emailController.text, password: passwordController.text);
         if (usercredentials.user != null) {
           print(usercredentials.user!.uid);
-          /* DbService().createDocument(
-              nameController.text,
-              fatherNameController.text,
-              int.parse(ageController.text),
-              usercredentials.user!.uid); */
+          UserDB().createHadyaUser(
+            firstNameController.text,
+            lastNameController.text,
+            usercredentials.user!.uid,
+            090078601,
+            '',
+            '',
+            '',
+          );
         } else {
           print("No User Found");
         }

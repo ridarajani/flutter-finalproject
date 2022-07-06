@@ -1,4 +1,6 @@
 import 'package:final_project/screens/resetPasswordScreen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -11,7 +13,13 @@ class ForgotPasswordScreen extends StatefulWidget {
 }
 
 class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
+  final emailController = TextEditingController();
   @override
+  void dispose() {
+    emailController.dispose();
+    super.dispose();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
         body: Padding(
@@ -41,7 +49,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     children: [
                       Container(
                         padding: const EdgeInsets.all(10),
-                        child: TextField(
+                        child: TextFormField(
+                          controller: emailController,
                           style: TextStyle(height: 0.5),
                           decoration: const InputDecoration(
                             border: InputBorder.none,
@@ -53,6 +62,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                             suffixIcon: Icon(Icons.email_outlined,
                                 color: Color.fromRGBO(165, 160, 160, 1)),
                           ),
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          // validator: (email) => email != null && !EmailValidator.validate(email) ? 'Enter a valid email' : null,
                         ),
                       ),
                     ],
@@ -73,14 +84,30 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                             style: TextStyle(
                                 color: Color.fromARGB(255, 252, 252, 252))),
                         onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (_) => ResetPasswordScreen()));
+                            verifyEmail();
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (_) => ResetPasswordScreen()));
                         },
                       )),
                 ),
               ],
             )));
+  }
+
+  Future verifyEmail() async {
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (context) => Center(child: CircularProgressIndicator()));
+    try {
+      await FirebaseAuth.instance
+          .sendPasswordResetEmail(email: emailController.text.trim());
+      Navigator.of(context).popUntil((route) => route.isFirst);
+    } on FirebaseAuthException catch (e) {
+      print(e);
+      Navigator.of(context).pop();
+    }
   }
 }

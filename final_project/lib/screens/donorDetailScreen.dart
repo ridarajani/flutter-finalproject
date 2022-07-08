@@ -1,7 +1,11 @@
-import 'package:final_project/bottom-navigation.dart';
-import 'package:flutter/material.dart';
+/* import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:provider/provider.dart';
+
+import '../models/requestModel.dart';
+// import 'package:final_project/providers/requestsProvider.dart';
 
 class DonorDetailScreen extends StatefulWidget {
   const DonorDetailScreen({Key? key}) : super(key: key);
@@ -11,26 +15,32 @@ class DonorDetailScreen extends StatefulWidget {
 }
 
 class _DonorDetailScreenState extends State<DonorDetailScreen> {
+  // late RequestsProvider requestsProvider;
 
-  showDialog(){
-    return Stack(
-      alignment: Alignment.center,
-      children: <Widget>[
-        Image.network('https://via.placeholder.com/150',fit: BoxFit.contain,), // Show your Image
-        Align(
-          alignment: Alignment.topRight,
-          child: RaisedButton.icon(
-              color: Theme.of(context).accentColor,
-              textColor: Colors.white,
-              onPressed: () => Navigator.pop(context),
-              icon: Icon(
-                Icons.close,
-                color: Colors.white,
-              ),
-              label: Text('Close')),
-        ),
-      ],
-    );
+  @override
+  initState() {
+    // requestsProvider = Provider.of<RequestsProvider>(context, listen: false);
+
+    super.initState();
+  }
+
+  String? updated_at = '';
+  sendDonationRequest(
+      requester_id, donor_id, location, date, request_status) async {
+    try {
+      final request = RequestModel(
+          donorID: donor_id,
+          requesterID: requester_id,
+          location: location,
+          donReqTime: date,
+          createdAt: DateTime.now().toString(),
+          updatedAt: updated_at == null ? null : DateTime.now().toString(),
+          requestStatus: request_status);
+
+      // requestsProvider.addRequest(request);
+    } catch (e) {
+      print(e);
+    }
   }
 
   @override
@@ -231,7 +241,18 @@ class _DonorDetailScreenState extends State<DonorDetailScreen> {
                             backgroundColor: MaterialStateProperty.all(
                                 Colors.grey.shade400)),
                         onPressed: () {
-                          showDialog();
+                          // current logged in user's ID
+                          final requester_id = 2;
+
+                          // the ID of the user whose details are listed
+                          final donor_id = 5;
+
+                          String location = 'Lady Duffrin';
+                          final date = '2022/06/30';
+                          String request_status = 'pending';
+
+                          sendDonationRequest(requester_id, donor_id, location,
+                              date, request_status);
                         },
                         child: Text('Request Donation')),
                   ],
@@ -245,3 +266,4 @@ class _DonorDetailScreenState extends State<DonorDetailScreen> {
     );
   }
 }
+ */

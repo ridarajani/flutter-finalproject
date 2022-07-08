@@ -1,3 +1,4 @@
+import 'package:final_project/models/userModel.dart';
 import 'package:final_project/nav-drawer.dart';
 import 'package:final_project/screens/EditFormScreen.dart';
 import 'package:final_project/screens/donorDetailScreen.dart';
@@ -7,7 +8,8 @@ import 'package:flutter/material.dart';
 import '../bottom-navigation.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  UserModel? userModel;
+  HomeScreen({this.userModel});
 
   @override
   Widget build(BuildContext context) {
@@ -319,7 +321,6 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigation(),
     );
   }
 }

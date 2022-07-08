@@ -45,10 +45,10 @@ class _DonorListState extends State<DonorList> {
                             padding: const EdgeInsets.all(5.0),
                             child: InkWell(
                               onTap: () {
-                                Navigator.push(
+                                /* Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (_) => DonorDetailScreen()));
+                                        builder: (_) => DonorDetailScreen())); */
                               },
                               child: Text(
                                 'User Name',

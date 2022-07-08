@@ -1,3 +1,4 @@
+import 'package:final_project/bottom-navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -10,60 +11,94 @@ class DonorDetailScreen extends StatefulWidget {
 }
 
 class _DonorDetailScreenState extends State<DonorDetailScreen> {
+
+  showDialog(){
+    return Stack(
+      alignment: Alignment.center,
+      children: <Widget>[
+        Image.network('https://via.placeholder.com/150',fit: BoxFit.contain,), // Show your Image
+        Align(
+          alignment: Alignment.topRight,
+          child: RaisedButton.icon(
+              color: Theme.of(context).accentColor,
+              textColor: Colors.white,
+              onPressed: () => Navigator.pop(context),
+              icon: Icon(
+                Icons.close,
+                color: Colors.white,
+              ),
+              label: Text('Close')),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color.fromRGBO(29, 69, 147, 1),
+        title: Text('Donors Detail'),
+      ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 35),
         child: Column(
           children: [
             Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Expanded(
-                  child: ListTile(
-                    tileColor: Color.fromARGB(75, 202, 205, 204),
-                    title: Row(
-                      children: [
-                        Column(
-                          children: [
-                            CircleAvatar(
-                              backgroundImage: NetworkImage(
-                                  'https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
-                            )
-                          ],
-                        ),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.all(5.0),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'User Name',
-                                  style: TextStyle(
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.w600,
-                                      color: Color.fromRGBO(129, 175, 161, 10)),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 0, bottom: 25),
+                    child: ListTile(
+                      title: Row(
+                        children: [
+                          Column(
+                            children: [
+                              CircleAvatar(
+                                radius: 40,
+                                backgroundImage: 
+                                NetworkImage(
+                                  'https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
                                 ),
-                                Text(
-                                  'Female',
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w600,
-                                      color: Color.fromRGBO(129, 175, 161, 10)),
-                                ),
-                                Text(
-                                  'Blood Group',
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w600,
-                                      color: Color.fromRGBO(129, 175, 161, 10)),
-                                ),
-                              ],
+                              ),
+                            ],
+                          ),
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(20, 5, 5, 5),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'User Name',
+                                    style: TextStyle(
+                                        fontSize: 24,
+                                        fontWeight: FontWeight.w600,
+                                        color: Color.fromRGBO(29, 69, 147, 1)),
+                                  ),
+                                  Text(
+                                    'Female',
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600,
+                                        color: Color.fromRGBO(24, 32, 35, 0.5)),
+                                  ),
+                                  Text(
+                                    'Blood Group',
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600,
+                                        color: Color.fromRGBO(24, 32, 35, 0.5)),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 )
@@ -195,7 +230,9 @@ class _DonorDetailScreenState extends State<DonorDetailScreen> {
                         style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all(
                                 Colors.grey.shade400)),
-                        onPressed: () {},
+                        onPressed: () {
+                          showDialog();
+                        },
                         child: Text('Request Donation')),
                   ],
                 )
@@ -204,6 +241,7 @@ class _DonorDetailScreenState extends State<DonorDetailScreen> {
           ],
         ),
       ),
+      bottomNavigationBar: BottomNavigation(),
     );
   }
 }

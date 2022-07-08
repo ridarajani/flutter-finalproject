@@ -1,3 +1,4 @@
+import 'package:final_project/bottom-navigation.dart';
 import 'package:final_project/screens/UserProfile.dart';
 import 'package:final_project/screens/donorDetailScreen.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,7 @@ class _DonorListState extends State<DonorList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(239, 108, 98, 10),
+        backgroundColor: Color.fromRGBO(29, 69, 147, 1),
         title: Text('Donors'),
       ),
       body: Padding(
@@ -30,7 +31,7 @@ class _DonorListState extends State<DonorList> {
                   child: ListTile(
                     onTap: () {
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (_) => UserProfile()));
+                          MaterialPageRoute(builder: (_) => DonorDetailScreen()));
                     },
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5)),
@@ -50,11 +51,11 @@ class _DonorListState extends State<DonorList> {
                                         builder: (_) => DonorDetailScreen()));
                               },
                               child: Text(
-                                'User Nmae',
+                                'User Name',
                                 style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w600,
-                                    color: Color.fromRGBO(129, 175, 161, 10)),
+                                    color: Color.fromRGBO(29, 69, 147, 1)),
                               ),
                             ),
                           ),
@@ -106,7 +107,7 @@ class _DonorListState extends State<DonorList> {
                     trailing: Container(
                       height: double.infinity,
                       child: CircleAvatar(
-                        backgroundColor: Color.fromRGBO(239, 108, 98, 1),
+                        backgroundColor: Color.fromRGBO(29, 69, 147, 1),
                         child: Text(
                           'B+',
                           style: TextStyle(color: Colors.white),
@@ -121,6 +122,7 @@ class _DonorListState extends State<DonorList> {
           ],
         ),
       ),
+      bottomNavigationBar: BottomNavigation(),
     );
   }
 }

@@ -31,7 +31,7 @@ class _DonorListState extends State<DonorList> {
                   child: ListTile(
                     onTap: () {
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (_) => DonorDetailScreen()));
+                          MaterialPageRoute(builder: (_) => UserProfile()));
                     },
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5)),

@@ -1,8 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:final_project/models/BloodBankModel.dart';
 import 'package:final_project/models/userModel.dart';
 import 'package:final_project/screens/UserProfile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import '../services/bloodBankDB.dart';
 
 class EditFormScreen extends StatefulWidget {
   UserModel? userModel;
@@ -29,10 +32,17 @@ class _EditFormScreenState extends State<EditFormScreen> {
   String diseases = '';
   String donatedPreviously = 'no';
 
+  @override
+  void initState() {
+    super.initState();
+    getBloodBanks();
+  }
+
   getBloodBanks() async {
+    print('i');
     try {
-      print(widget.userModel);
-      /* if (usercredentials.user != null) {} */
+      final bloodBankModel = await BloodBankDB().getBloodBanks();
+      print(bloodBankModel);
     } catch (e) {
       print(e);
     }

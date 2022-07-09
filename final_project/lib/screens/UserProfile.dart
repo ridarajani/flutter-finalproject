@@ -1,8 +1,10 @@
+import 'package:final_project/models/userModel.dart';
 import 'package:final_project/screens/EditFormScreen.dart';
 import 'package:flutter/material.dart';
 
 class UserProfile extends StatefulWidget {
-  const UserProfile({Key? key}) : super(key: key);
+  UserModel? userModel;
+  UserProfile({this.userModel});
 
   @override
   State<UserProfile> createState() => _UserProfileState();
@@ -299,8 +301,11 @@ class _UserProfileState extends State<UserProfile> {
                     style:
                         TextStyle(color: Color.fromARGB(255, 252, 252, 252))),
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => EditFormScreen()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) =>
+                              EditFormScreen(userModel: widget.userModel)));
                 },
               )),
         ),

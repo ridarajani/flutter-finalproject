@@ -4,12 +4,49 @@ import 'package:final_project/screens/EditFormScreen.dart';
 import 'package:final_project/screens/donorDetailScreen.dart';
 import 'package:final_project/screens/donorList.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 
 import '../bottom-navigation.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   UserModel? userModel;
   HomeScreen({this.userModel});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+   _getCurrentLocation() {
+    geolocator
+        .getCurrentPosition(desiredAccuracy: LocationAccuracy.best)
+        .then((Position position) {
+      setState(() {
+        _currentPosition = position;
+      });
+      _getAddressFromLatLng();
+    }).catchError((e) {
+      print(e);
+    });
+  }
+
+  _getAddressFromLatLng() async {
+    try {
+      List<Placemark> p = await geolocator.placemarkFromCoordinates(
+          _currentPosition.latitude, _currentPosition.longitude);
+      Placemark place = p[0];
+      setState(() {
+        _currentAddress =
+            "${place.locality}, ${place.postalCode}, ${place.country}";
+      });
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  final Geolocator geolocator = Geolocator()..forceAndroidLocationManager;
+  late Position _currentPosition;
+  late String _currentAddress;
 
   @override
   Widget build(BuildContext context) {
@@ -44,15 +81,23 @@ class HomeScreen extends StatelessWidget {
                               'https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
                           ),
                         ),
-                        DropdownButton<String>(
-                          hint: Text('Current Location', style: TextStyle(fontSize: 20, color: Colors.white),),
-                          items: <String>['Pakistan', 'China', 'Iran', 'UAE'].map((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
-                          onChanged: (_) {},
+                        // DropdownButton<String>(
+                        //   hint: Text('Current Location', style: TextStyle(fontSize: 20, color: Colors.white),),
+                        //   items: <String>['Pakistan', 'China', 'Iran', 'UAE'].map((String value) {
+                        //     return DropdownMenuItem<String>(
+                        //       value: value,
+                        //       child: Text(value),
+                        //     );
+                        //   }).toList(),
+                        //   onChanged: (_) {},
+                        // ),
+                        if (_currentPosition != null) 
+                        Text(_currentAddress),
+                        ElevatedButton(
+                          child: Text("Get location"),
+                          onPressed: () {
+                            _getCurrentLocation();
+                          },
                         ),
                         Stack(
                           children: [
@@ -82,7 +127,7 @@ class HomeScreen extends StatelessWidget {
                               text: 'Hello, ', style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700, color: Colors.white),
                             ),
                             TextSpan(
-                              text: 'User', style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700, color: Colors.white),
+                              text: widget.userModel!.firstName, style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700, color: Colors.white),
                             ),
                           ],
                         ),

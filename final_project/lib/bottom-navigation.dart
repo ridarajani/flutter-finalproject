@@ -29,7 +29,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
     HomeScreen(),
     RequestsScreen(),
     DonationsScreen(),
-    UserProfile(userModel: widget.userModel)
+    // UserProfile(userModel: widget.userModel)
   ];
 
   @override

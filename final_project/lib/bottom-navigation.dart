@@ -17,13 +17,6 @@ class BottomNavigation extends StatefulWidget {
 }
 
 class _BottomNavigationState extends State<BottomNavigation> {
-  List<Widget> pageList = <Widget>[
-    HomeScreen(),
-    RequestsScreen(),
-    DonationsScreen(),
-    UserProfile()
-  ];
-
   int _currentIndex = 0;
 
   void _onItemTapped(int index) {
@@ -31,6 +24,13 @@ class _BottomNavigationState extends State<BottomNavigation> {
       _currentIndex = index;
     });
   }
+
+  List<Widget> pageList = <Widget>[
+    HomeScreen(),
+    RequestsScreen(),
+    DonationsScreen(),
+    UserProfile(userModel: widget.userModel)
+  ];
 
   @override
   Widget build(BuildContext context) {

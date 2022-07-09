@@ -29,7 +29,8 @@ class _HomeScreenState extends State<HomeScreen> {
     } catch (e) {
     print(e);
     }
-    print(LocationData);
+    Object? long;
+    print(long);
     }
 
   @override
@@ -95,6 +96,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ],
                     ),
+                    widget.userModel != null
+                    ? 
                     Padding(
                       padding: const EdgeInsets.only(top: 40),
                       child: RichText(
@@ -104,12 +107,13 @@ class _HomeScreenState extends State<HomeScreen> {
                               text: 'Hello, ', style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700, color: Colors.white),
                             ),
                             TextSpan(
-                              text: widget.userModel!.firstName, style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700, color: Colors.white),
+                              text: widget.userModel?.firstName, style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700, color: Colors.white),
                             ),
                           ],
                         ),
                       ),
-                    ),
+                    )
+                    : Container(),
                   ],
                 ),
               ),

@@ -29,7 +29,7 @@ class _DonationsScreenState extends State<DonationsScreen> {
                 Padding(
                   padding: const EdgeInsets.only(top: 12.0, bottom: 7.0),
                   child: Text(
-                    'Requests For Blood',
+                    'Donations Of Blood',
                     style: TextStyle(
                         color: Color.fromRGBO(0, 67, 149, 1),
                         fontSize: 20,
@@ -39,7 +39,7 @@ class _DonationsScreenState extends State<DonationsScreen> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 12.0),
                   child: Text(
-                    'See received blood requests and also check your request status',
+                    'See received blood donations and also check your donations',
                     style: TextStyle(
                         color: Color.fromRGBO(0, 67, 149, 1), fontSize: 12),
                   ),
@@ -62,13 +62,13 @@ class _DonationsScreenState extends State<DonationsScreen> {
               tabs: [
                 Tab(
                   child: Text(
-                    'Requests Sent',
+                    'Donations Given',
                     style: TextStyle(fontSize: 16),
                   ),
                 ),
                 Tab(
                   child: Text(
-                    'Requests Received',
+                    'Donations Received',
                     style: TextStyle(fontSize: 16),
                   ),
                 ),

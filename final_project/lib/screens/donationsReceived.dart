@@ -52,7 +52,7 @@ class DonationsReceivedState extends State<DonationsReceived> {
                               child: Padding(
                                 padding: const EdgeInsets.all(5.0),
                                 child: Text(
-                                  'Donated to Name',
+                                  'Donated by Name',
                                   style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.w500,

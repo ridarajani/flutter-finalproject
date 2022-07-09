@@ -1,3 +1,4 @@
+import 'package:final_project/bottom-navigation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:final_project/screens/HomeScreen.dart';
@@ -36,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
         () async {
           await Navigator.pushAndRemoveUntil(context,
               MaterialPageRoute(builder: (_) {
-            return HomeScreen();
+            return BottomNavigation();
           }), (route) => false);
         },
       );

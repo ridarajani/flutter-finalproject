@@ -75,8 +75,19 @@ class HomeScreen extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 40),
-                      child: Text('Hello, User', style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700, color: Colors.white),),
-                    )
+                      child: RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: 'Hello, ', style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700, color: Colors.white),
+                            ),
+                            TextSpan(
+                              text: 'User', style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700, color: Colors.white),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -85,9 +96,9 @@ class HomeScreen extends StatelessWidget {
               clipBehavior: Clip.hardEdge,
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: 
-                  BorderRadius.only(topLeft: Radius.circular(40), topRight: Radius.circular(40)
-                ),
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(50),
+                    topRight: Radius.circular(50)),
               ),
               child: Column(
                 children: [
@@ -145,20 +156,24 @@ class HomeScreen extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
-                                      InkWell(
+                                      GestureDetector(
                                         onTap: () {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (_) => DonorList()));
+                                          Navigator.push(context,
+                                            MaterialPageRoute(builder: (_) => DonorList()));
                                         },
-                                        child: Text(
-                                          'Meet Heroes',
-                                          style: TextStyle(
-                                              color: Color.fromRGBO(24, 32, 35, 1),
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.w700),
-                                          textAlign: TextAlign.center,
+                                        child: InkWell(
+                                          onTap: () {
+                                            Navigator.push(context,
+                                            MaterialPageRoute(builder: (_) => DonorList()));
+                                          },
+                                          child: Text(
+                                            'Meet Heroes',
+                                            style: TextStyle(
+                                                color: Color.fromRGBO(24, 32, 35, 1),
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.w700),
+                                            textAlign: TextAlign.center,
+                                          ),
                                         ),
                                       ),
                                       Padding(

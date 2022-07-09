@@ -1,10 +1,12 @@
+import 'dart:ffi';
+
 import 'package:final_project/models/userModel.dart';
 import 'package:final_project/nav-drawer.dart';
 import 'package:final_project/screens/EditFormScreen.dart';
 import 'package:final_project/screens/donorDetailScreen.dart';
 import 'package:final_project/screens/donorList.dart';
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
+import 'package:location/location.dart';
 
 import '../bottom-navigation.dart';
 
@@ -17,36 +19,18 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-   _getCurrentLocation() {
-    geolocator
-        .getCurrentPosition(desiredAccuracy: LocationAccuracy.best)
-        .then((Position position) {
-      setState(() {
-        _currentPosition = position;
-      });
-      _getAddressFromLatLng();
-    }).catchError((e) {
-      print(e);
-    });
-  }
-
-  _getAddressFromLatLng() async {
+   Future getCurrentLocation() async {
     try {
-      List<Placemark> p = await geolocator.placemarkFromCoordinates(
-          _currentPosition.latitude, _currentPosition.longitude);
-      Placemark place = p[0];
-      setState(() {
-        _currentAddress =
-            "${place.locality}, ${place.postalCode}, ${place.country}";
-      });
+    Location location = Location();
+    LocationData locationData;
+    locationData = await location.getLocation();
+    var long = locationData.longitude;
+    var lat = locationData.latitude;
     } catch (e) {
-      print(e);
+    print(e);
     }
-  }
-
-  final Geolocator geolocator = Geolocator()..forceAndroidLocationManager;
-  late Position _currentPosition;
-  late String _currentAddress;
+    print(LocationData);
+    }
 
   @override
   Widget build(BuildContext context) {
@@ -91,14 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         //   }).toList(),
                         //   onChanged: (_) {},
                         // ),
-                        if (_currentPosition != null) 
-                        Text(_currentAddress),
-                        ElevatedButton(
-                          child: Text("Get location"),
-                          onPressed: () {
-                            _getCurrentLocation();
-                          },
-                        ),
+                        Text(''),
                         Stack(
                           children: [
                             IconButton(
@@ -127,7 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               text: 'Hello, ', style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700, color: Colors.white),
                             ),
                             TextSpan(
-                              text: widget.userModel!.firstName, style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700, color: Colors.white),
+                              text: widget.userModel.firstName, style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700, color: Colors.white),
                             ),
                           ],
                         ),

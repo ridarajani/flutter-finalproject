@@ -104,7 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               text: 'Hello, ', style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700, color: Colors.white),
                             ),
                             TextSpan(
-                              text: widget.userModel.firstName, style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700, color: Colors.white),
+                              text: widget.userModel!.firstName, style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700, color: Colors.white),
                             ),
                           ],
                         ),

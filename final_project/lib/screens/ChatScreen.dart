@@ -18,11 +18,13 @@ class _ChatScreenState extends State<ChatScreen> {
 
   sendMessage() {
     if (messageController.text.trim().isEmpty) return;
-    // FirebaseFirestore.instance.collection("groupChat").add({
-    //   "message": messageController.text.trim(),
-    //   "date": DateTime.now(),
-    //   "uid": "maaz"
-    // });
+    print(messageController.text.trim());
+    FirebaseFirestore.instance.collection("chat").add({
+      "message": messageController.text.trim(),
+      "date": DateTime.now(),
+      "donorid": "1",
+      "uid": "1"
+    });
     messageController.clear();
   }
 
@@ -41,7 +43,7 @@ class _ChatScreenState extends State<ChatScreen> {
             Expanded(
               child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
                 stream: FirebaseFirestore.instance
-                    .collection("groupChat")
+                    .collection("chat")
                     .orderBy("date", descending: true)
                     .snapshots(),
                 builder: (ctx, snapshot) {
@@ -56,7 +58,7 @@ class _ChatScreenState extends State<ChatScreen> {
                         final message =
                             MessageModel.fromDocument(snapshot.data!.docs[i]);
                         return Row(
-                          mainAxisAlignment: message.uid == "maaz"
+                          mainAxisAlignment: message.uid == "1"
                               ? MainAxisAlignment.end
                               : MainAxisAlignment.start,
                           children: [MessageContainer(message: message)],
@@ -80,7 +82,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     style: TextStyle(height: 0.5),
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      labelText: 'Email Address',
+                      labelText: 'Message',
                       labelStyle:
                           TextStyle(color: Color.fromRGBO(165, 160, 160, 1)),
                       fillColor: Color.fromRGBO(240, 240, 240, 0.86),
@@ -114,18 +116,21 @@ class _ChatScreenState extends State<ChatScreen> {
 class MessageModel {
   final String id;
   final String message;
+  final String donorid;
   final DateTime date;
   final String uid;
 
   MessageModel(
       {required this.id,
       required this.date,
+      required this.donorid,
       required this.message,
       required this.uid});
 
   factory MessageModel.fromDocument(DocumentSnapshot doc) => MessageModel(
       id: doc.id,
       date: doc["date"].toDate(),
+      donorid: doc["donorid"],
       message: doc["message"],
       uid: doc["uid"]);
 }

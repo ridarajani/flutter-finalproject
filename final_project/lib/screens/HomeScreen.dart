@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:final_project/models/userModel.dart';
 import 'package:final_project/nav-drawer.dart';
 import 'package:final_project/screens/EditFormScreen.dart';
@@ -6,6 +8,7 @@ import 'package:final_project/screens/donorList.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
+// import 'package:location/location.dart';
 
 import '../bottom-navigation.dart';
 
@@ -42,7 +45,10 @@ class _HomeScreenState extends State<HomeScreen> {
             "${place.locality}, ${place.postalCode}, ${place.country}";
       });
     } catch (e) {
-      print(e);
+    print(e);
+    }
+    Object? long;
+    print(long);
     }
   } */
 
@@ -148,7 +154,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ],
                         ),
                       ),
-                    ),
+                    )
                   ],
                 ),
               ),
